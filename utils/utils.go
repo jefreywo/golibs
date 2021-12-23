@@ -24,3 +24,14 @@ func Round(x float64, n int) float64 {
 func IsEqual(x, y float64, precision float64) bool {
 	return math.Dim(x, y) < precision
 }
+
+func RandArray(arr ...interface{}) interface{} {
+	rand.Seed(time.Now().UnixNano())
+	return arr[rand.Intn(len(arr))]
+}
+
+// 要求 a < b
+func RandInterval(a, b int64) int64 {
+	rand.Seed(time.Now().UnixNano())
+	return rand.Int63n(b-a+1) + a
+}

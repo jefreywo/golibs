@@ -26,3 +26,17 @@ func TestIsEqual(t *testing.T) {
 		t.Fatal("error")
 	}
 }
+
+func TestRandArray(t *testing.T) {
+	for i := 0; i < 15; i++ {
+		fmt.Println(RandArray("a", "b", "c", "d", "e"))
+		fmt.Println(RandArray(1, 2, 3, 4, 5, 6, 7, 8))
+		fmt.Println("------------")
+	}
+}
+
+func TestRandInterval(t *testing.T) {
+	for i := 0; i < 15; i++ {
+		fmt.Println(RandInterval(80, 90))
+	}
+}
