@@ -1,4 +1,4 @@
-package db
+package mysql
 
 import (
 	"fmt"
@@ -13,8 +13,8 @@ import (
 )
 
 type MysqlDBConfig struct {
-	User         string // 必填
-	Password     string // 必填
+	User         string // 必填 用户名
+	Password     string // 必填 密码
 	Host         string // 必填
 	Port         int    // 必填
 	Dbname       string // 必填
@@ -27,7 +27,7 @@ type MysqlDBConfig struct {
 	LogLevel      string        // 选填 db日志级别: silent,info,error,warn
 }
 
-func NewMysqlDB(conf *MysqlDBConfig) (*gorm.DB, error) {
+func NewGormDB(conf *MysqlDBConfig) (*gorm.DB, error) {
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local&timeout=16s&readTimeout=3s&writeTimeout=5s",
 		conf.User, conf.Password, conf.Host, conf.Port, conf.Dbname)
 
